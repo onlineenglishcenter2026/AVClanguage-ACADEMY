@@ -136,7 +136,25 @@ body{
   border-radius:var(--card-radius);
   box-shadow: var(--shadow-2);
   overflow:hidden;
+  position:relative; /* needed for hero-logo absolute */
 }
+
+/* HERO LOGO positioned over the yellow card (top-left) */
+.hero-logo{
+  position:absolute;
+  top:12px;
+  left:12px;
+  width:64px;
+  height:64px;
+  object-fit:contain;
+  border-radius:8px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  background: rgba(255,255,255,0.0);
+  z-index:10;
+}
+
+/* Ensure hero visual SVG sits behind the logo */
+.visual-svg{ display:block; width:100%; height:auto; }
 
 /* Sections */
 .section-title{ font-size:1.25rem; margin:0 0 0.4rem; font-weight:700; }
@@ -323,12 +341,27 @@ body{
 
   .floating-call{ right:10px; bottom:74px; }
   .floating-whatsapp{ right:10px; bottom:14px; }
+
+  /* Hero logo adjust for smaller screens when visual stacks under text */
+  .hero-logo{
+    top:10px;
+    left:10px;
+    width:60px;
+    height:60px;
+  }
 }
 
 @media (max-width: 640px){
   .grid-3{ grid-template-columns: 1fr }
   .hero-content h1{ font-size:1.5rem }
   .header-right .phone-link{ display:none } /* hide phone in header on small screens (floating buttons exist) */
+
+  .hero-logo{
+    width:48px;
+    height:48px;
+    top:8px;
+    left:8px;
+  }
 }
 
 /* Reveal animations (used for progressive reveal) */
