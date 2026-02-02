@@ -13,18 +13,16 @@
   <!-- Stylesheet -->
   <link rel="stylesheet" href="styles.css">
 
-  <!-- Favicons (optional — create these files if you want favicons) -->
+  <!-- Favicons (optional) -->
   <link rel="icon" type="image/png" sizes="32x32" href="images/eit-logo-32.png">
   <link rel="icon" type="image/png" sizes="96x96" href="images/eit-logo-96.png">
   <link rel="icon" href="images/eit-logo.png" type="image/png" />
-
 </head>
 <body class="page">
 
   <header class="site-header">
     <div class="container header-inner">
       <a class="logo" href="#home" aria-label="Online English Center home">
-        <!-- Use your PNG logo placed in images/eit-logo.png -->
         <img
           src="images/eit-logo.png"
           srcset="images/eit-logo@2x.png 2x"
@@ -35,19 +33,22 @@
         <span class="brand">Online English Center</span>
       </a>
 
-      <nav class="main-nav" aria-label="Main navigation">
-        <button class="nav-toggle" aria-controls="primary-menu" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="hamburger"></span>
-        </button>
+      <div class="header-right">
+        <a class="phone-link" href="tel:+37477752513" aria-label="Call us">+374 77 75 25 13</a>
+        <nav class="main-nav" aria-label="Main navigation">
+          <button class="nav-toggle" aria-controls="primary-menu" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="hamburger"></span>
+          </button>
 
-        <ul id="primary-menu" class="nav-list">
-          <li><a href="#courses">Courses</a></li>
-          <li><a href="#teacher-training">Teacher Training</a></li>
-          <li><a href="#testimonials">Testimonials</a></li>
-          <li><a href="#contact">Contact</a></li>
-          <li><button class="btn btn-cta" id="enrollBtn">Enroll</button></li>
-        </ul>
-      </nav>
+          <ul id="primary-menu" class="nav-list">
+            <li><a href="#courses">Courses</a></li>
+            <li><a href="#teacher-training">Teacher Training</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><button class="btn btn-cta" id="enrollBtn">Enroll</button></li>
+          </ul>
+        </nav>
+      </div>
     </div>
   </header>
 
@@ -89,9 +90,10 @@
     <!-- FEATURES -->
     <section class="features container" id="courses" aria-labelledby="courses-heading">
       <h2 id="courses-heading" class="section-title reveal-up">Our Courses</h2>
-      <p class="section-subtitle reveal-up delay-1">Seven focused programs: IELTS skills, teacher training, academic writing and advanced speaking.</p>
+      <p class="section-subtitle reveal-up delay-1">Nine focused programs: IELTS skills (Task 1 & 2), teacher training, academic writing, business and advanced speaking.</p>
 
       <div class="grid grid-3 gap-2">
+        <!-- Course Card -->
         <article class="card reveal-up delay-2">
           <div class="card-head">
             <h3>IELTS Writing Task 1 (Academic & General)</h3>
@@ -105,7 +107,21 @@
           </div>
         </article>
 
+        <!-- NEW: Writing Task 2 -->
         <article class="card reveal-up delay-3">
+          <div class="card-head">
+            <h3>IELTS Writing Task 2 (Academic & General)</h3>
+            <p class="muted">Essay planning, argument structure, and high-band vocabulary</p>
+          </div>
+          <div class="card-body">
+            <p>Learn how to plan, structure and write high-scoring Task 2 essays with cohesion, coherence and task response at the center of instruction.</p>
+          </div>
+          <div class="card-foot">
+            <button class="btn btn-sm js-open-course" data-course="IELTS Writing Task 2">More details</button>
+          </div>
+        </article>
+
+        <article class="card reveal-up delay-4">
           <div class="card-head">
             <h3>IELTS Speaking</h3>
             <p class="muted">Teacher training available</p>
@@ -118,7 +134,7 @@
           </div>
         </article>
 
-        <article class="card reveal-up delay-4">
+        <article class="card reveal-up delay-2">
           <div class="card-head">
             <h3>IELTS Reading</h3>
             <p class="muted">Teacher training available</p>
@@ -131,7 +147,7 @@
           </div>
         </article>
 
-        <article class="card reveal-up delay-2">
+        <article class="card reveal-up delay-3">
           <div class="card-head">
             <h3>IELTS Listening</h3>
             <p class="muted">Teacher training available</p>
@@ -144,7 +160,7 @@
           </div>
         </article>
 
-        <article class="card reveal-up delay-3">
+        <article class="card reveal-up delay-2">
           <div class="card-head">
             <h3>Academic Writing for University Students</h3>
             <p class="muted">Thesis statements, structure, argumentation and citation practice</p>
@@ -167,6 +183,20 @@
           </div>
           <div class="card-foot">
             <button class="btn btn-sm js-open-course" data-course="Advanced Speaking">More details</button>
+          </div>
+        </article>
+
+        <!-- NEW: Business English -->
+        <article class="card reveal-up delay-3">
+          <div class="card-head">
+            <h3>Business English</h3>
+            <p class="muted">Professional communication and workplace English</p>
+          </div>
+          <div class="card-body">
+            <p>Business meetings, presentations, emails and negotiation language — practical lessons for professionals and students entering the workplace.</p>
+          </div>
+          <div class="card-foot">
+            <button class="btn btn-sm js-open-course" data-course="Business English">More details</button>
           </div>
         </article>
 
@@ -277,6 +307,11 @@
           </label>
 
           <label>
+            Phone
+            <input type="tel" name="phone" id="phone" required placeholder="+37477752513">
+          </label>
+
+          <label>
             Email
             <input type="email" name="email" id="email" required placeholder="you@example.com">
           </label>
@@ -302,7 +337,8 @@
         <aside class="contact-info">
           <h3>Quick info</h3>
           <p>Email: <a href="mailto:info@onlineenglishcenter.example">info@onlineenglishcenter.example</a></p>
-          <p>Phone (WhatsApp): +1 555 123 4567</p>
+          <p>Phone (Call): <a href="tel:+37477752513">+374 77 75 25 13</a></p>
+          <p>WhatsApp: <a target="_blank" rel="noopener" href="https://wa.me/37477752513">Chat on WhatsApp</a></p>
           <p>We deliver live online classes across time zones. Ask about bulk packages for institutions.</p>
 
           <div class="small-note muted">
@@ -343,6 +379,11 @@
         </label>
 
         <label>
+          Phone
+          <input type="tel" id="e-phone" required placeholder="+37477752513">
+        </label>
+
+        <label>
           Email
           <input type="email" id="e-email" required>
         </label>
@@ -366,6 +407,10 @@
       </form>
     </div>
   </div>
+
+  <!-- Floating quick contact buttons -->
+  <a class="floating-whatsapp" href="https://wa.me/37477752513" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">WhatsApp</a>
+  <a class="floating-call" href="tel:+37477752513" aria-label="Call us">Call</a>
 
   <!-- Scripts -->
   <script src="script.js" defer></script>
