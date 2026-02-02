@@ -13,16 +13,25 @@
   <!-- Stylesheet -->
   <link rel="stylesheet" href="styles.css">
 
-  <!-- Fav icon (SVG inline fallback) -->
-  <link rel="icon" href="logo.svg" type="image/svg+xml" />
+  <!-- Favicons (optional — create these files if you want favicons) -->
+  <link rel="icon" type="image/png" sizes="32x32" href="images/eit-logo-32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="images/eit-logo-96.png">
+  <link rel="icon" href="images/eit-logo.png" type="image/png" />
+
 </head>
 <body class="page">
 
   <header class="site-header">
     <div class="container header-inner">
       <a class="logo" href="#home" aria-label="Online English Center home">
-        <!-- Inline SVG logo fallback uses logo.svg file (also in repo) -->
-        <img src="logo.svg" alt="Online English Center logo" width="48" height="48">
+        <!-- Use your PNG logo placed in images/eit-logo.png -->
+        <img
+          src="images/eit-logo.png"
+          srcset="images/eit-logo@2x.png 2x"
+          alt="EIT Logo"
+          width="56"
+          height="56"
+          loading="lazy">
         <span class="brand">Online English Center</span>
       </a>
 
@@ -57,7 +66,6 @@
       </div>
 
       <div class="hero-visual reveal-right delay-1" aria-hidden="true">
-        <!-- Decorative illustration / placeholder -->
         <div class="card-visual">
           <svg viewBox="0 0 400 300" class="visual-svg" aria-hidden="true">
             <defs>
@@ -84,7 +92,6 @@
       <p class="section-subtitle reveal-up delay-1">Seven focused programs: IELTS skills, teacher training, academic writing and advanced speaking.</p>
 
       <div class="grid grid-3 gap-2">
-        <!-- Course Card -->
         <article class="card reveal-up delay-2">
           <div class="card-head">
             <h3>IELTS Writing Task 1 (Academic & General)</h3>
