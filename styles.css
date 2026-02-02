@@ -55,6 +55,11 @@ body{
   gap:1rem;
   justify-content:space-between;
 }
+.header-right{
+  display:flex;
+  align-items:center;
+  gap:1rem;
+}
 
 /* Logo */
 .logo{
@@ -64,8 +69,32 @@ body{
   text-decoration:none;
   color:var(--text);
 }
-.logo img{display:block}
+.logo img{
+  width:56px;            /* desktop size */
+  height:56px;
+  object-fit:contain;
+  display:block;
+}
 .brand{font-weight:700; font-size:1rem;}
+
+/* Header phone link */
+.phone-link{
+  color:var(--text);
+  text-decoration:none;
+  font-weight:600;
+  padding:6px 8px;
+  border-radius:8px;
+}
+.phone-link:hover{ background:var(--accent-100); }
+
+/* Slightly smaller on narrow screens */
+@media (max-width:640px){
+  .logo img{
+    width:44px;
+    height:44px;
+  }
+  .brand{ display:none } /* compact */
+}
 
 /* Nav */
 .main-nav{display:flex; align-items:center; gap:0.5rem}
@@ -132,16 +161,6 @@ body{
 .muted{ color:var(--muted) }
 .card-body{ margin:0.6rem 0 }
 .card-foot{ display:flex; justify-content:flex-end }
-
-/* Price cards */
-.price-card{ text-align:left; padding:1.2rem }
-.price-amount{ font-size:1.2rem; margin:0.6rem 0; }
-.price-features{ list-style: none; padding:0; margin:0 0 1rem 0 }
-.price-features li{ margin:0.4rem 0 }
-
-/* Popular badge */
-.popular{ position:relative; }
-.popular .badge{ position:absolute; top:-10px; right:-10px; background:var(--accent-700); color:white; padding:6px 10px; border-radius:10px; font-weight:700; font-size:0.8rem }
 
 /* Buttons */
 .btn{
@@ -228,7 +247,7 @@ body{
 /* Contact grid */
 .contact-grid{ display:grid; grid-template-columns: 1fr 320px; gap:1.2rem; align-items:start; margin-top:1rem; }
 .form-card label{ display:block; margin-bottom:0.6rem; font-size:0.95rem }
-.form-card input[type="text"], .form-card input[type="email"], .form-card textarea{
+.form-card input[type="text"], .form-card input[type="email"], .form-card input[type="tel"], .form-card textarea{
   width:100%;
   padding:0.6rem;
   border-radius:8px;
@@ -264,8 +283,33 @@ body{
   transition: opacity 240ms ease, visibility 240ms ease;
 }
 .modal[aria-hidden="false"]{ opacity:1; visibility:visible }
-.modal-dialog{ background:var(--surface); width:100%; max-width:520px; padding:1rem 1.2rem; border-radius:14px; box-shadow:var(--shadow-2) }
+.modal-dialog{ background:var(--surface); width:100%; max-width:520px; padding:1rem 1.2rem; border-radius:14px; box-shadow:var(--shadow-2); position:relative; }
 .modal-close{ position:absolute; right:18px; top:18px; background:none; border:0; font-size:1.6rem }
+
+/* Floating quick contact buttons */
+.floating-whatsapp, .floating-call{
+  position:fixed;
+  z-index:140;
+  padding:10px 12px;
+  border-radius:28px;
+  color:white;
+  font-weight:700;
+  text-decoration:none;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  transition: transform 160ms ease;
+}
+.floating-whatsapp{
+  right:16px;
+  bottom:16px;
+  background: #25D366; /* WhatsApp green */
+}
+.floating-whatsapp:hover{ transform: translateY(-4px); }
+.floating-call{
+  right:16px;
+  bottom:72px;
+  background: var(--accent-700);
+}
+.floating-call:hover{ transform: translateY(-4px); }
 
 /* Responsiveness */
 @media (max-width: 980px){
@@ -276,12 +320,15 @@ body{
   .nav-list{ display:none; position:absolute; top:64px; right:16px; background:white; padding:12px; border-radius:10px; box-shadow:var(--shadow-2); flex-direction:column; width:min(280px, 92vw) }
   .nav-list.show{ display:flex }
   .nav-toggle{ display:block }
+
+  .floating-call{ right:10px; bottom:74px; }
+  .floating-whatsapp{ right:10px; bottom:14px; }
 }
 
 @media (max-width: 640px){
   .grid-3{ grid-template-columns: 1fr }
   .hero-content h1{ font-size:1.5rem }
-  .brand{ display:none } /* compact */
+  .header-right .phone-link{ display:none } /* hide phone in header on small screens (floating buttons exist) */
 }
 
 /* Reveal animations (used for progressive reveal) */
